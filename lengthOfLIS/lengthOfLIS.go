@@ -19,7 +19,7 @@ func lengthOfLIS(nums []int) int {
 
 	// initialize dp array
 	dp := make([]int, len(nums))
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		dp[i] = 1
 
 		for j := 0; j < i; j++ {
@@ -37,7 +37,7 @@ func lengthOfLIS(nums []int) int {
 		maxLength = dp[0]
 	}
 
-	for i := 0; i < len(dp); i++ {
+	for i := range dp {
 		if dp[i] > maxLength {
 			maxLength = dp[i]
 		}
