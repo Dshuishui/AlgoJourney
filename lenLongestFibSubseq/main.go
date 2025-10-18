@@ -3,6 +3,13 @@ package main
 import "fmt"
 
 func lenLongestFibSubseq(arr []int) int {
+	mapValueToIndex := make(map[int]int)
+	for i, v := range arr {
+		mapValueToIndex[v] = i
+	}
+
+	n := len(arr)
+	
 	return 0
 }
 
