@@ -3,33 +3,16 @@ package main
 import "fmt"
 
 func main() {
-    str := "1563693962"
-    var stack []byte
-    var maxStack []byte
-    num := 1 // 当前递增序列长度，初始化为1因为第一个元素算长度1
-    max := 1 // 最长递增序列长度，初始化为1
+    // 使用 make 创建切片
+    s1 := make([]int, 3, 5) // 长度 3，容量 5
+    fmt.Printf("s1: len=%d, cap=%d, %v\n", len(s1), cap(s1), s1)
 
-    // 将第一个字符放入栈
-    stack = append(stack, str[0]-'0')
-    
-    for i := 1; i < len(str); i++ {
-        v := str[i] - '0' // 转为数字
-        if v > stack[len(stack)-1] { // 如果当前数字大于栈顶
-            stack = append(stack, v)
-            num++
-            if num > max { // 更新最长序列
-                max = num
-                maxStack = make([]byte, len(stack))
-                copy(maxStack, stack) // 保存当前最长序列
-            }
-        } else { // 当前数字不大于栈顶，重置栈
-            stack = stack[:0] // 清空栈
-            stack = append(stack, v) // 放入当前数字
-            num = 1 // 重置当前长度为1
-        }
-    }
+    // 字面量创建切片
+    s2 := []int{1, 2, 3} // 长度和容量相等
+    fmt.Printf("s2: len=%d, cap=%d, %v\n", len(s2), cap(s2), s2)
 
-    // 输出结果
-    fmt.Printf("最长递增子序列长度: %d\n", max)
-    fmt.Printf("最长递增子序列: %v\n", maxStack)
+    // 从数组或切片截取
+    arr := [5]int{1, 2, 3, 4, 5}
+    s3 := arr[1:3] // 从索引 1 到 3，容量从 1 到数组末尾
+    fmt.Printf("s3: len=%d, cap=%d, %v\n", len(s3), cap(s3), s3)
 }
