@@ -1,5 +1,6 @@
 // Use map to count the frequency of each character in a string and return the most frequent character.
 
+// add a use case of counting the frequency of each character in a string by using a map
 package main
 
 import (
